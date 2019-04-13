@@ -28,6 +28,13 @@ var swipeSlider = (function() {
   const methods = {};
 
   // Private Methods
+
+  /**
+   * Get all the slides in the Container and Calculate the total number of slides
+   * @param  {String}    container    Parent Container of all slides
+   * @return {Object}                 Object with Parent Container and All Slides as NodeList
+   */
+
   const getSlides = function(container) {
     const slideContainer = document.querySelector(container);
     const slides = slideContainer.querySelectorAll(".slide");
@@ -35,6 +42,12 @@ var swipeSlider = (function() {
     const result = { slideContainer, slides };
     return result;
   };
+
+  /**
+   * Initiate Sliding animation from 2nd slide
+   * @param  {String}    container    Parent Container of all Slides
+   * @param  {NodeList}  slides       All the Slide Nodes as an NodeList
+   */
 
   const startSlider = function(container, slides) {
     setInterval(function() {
@@ -49,6 +62,11 @@ var swipeSlider = (function() {
   };
 
   // Public Methods
+
+  /**
+   * Initiatiation Method
+   * @param  {String}    selector    Parent Container of all Slides
+   */
   methods.initiate = function(selector) {
     const { slideContainer, slides } = getSlides(selector);
     slides[currentSlide].classList += " animate";
